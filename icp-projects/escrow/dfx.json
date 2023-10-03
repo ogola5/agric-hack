@@ -1,0 +1,13 @@
+{
+    "canisters": {
+        "escrow": {
+            "type": "custom",
+            "build": "npx azle escrow",
+            "root": "src",
+            "ts": "src/index.ts",
+            "candid": "src/index.did",
+            "wasm": ".azle/escrow/escrow.wasm.gz"
+        }
+    }
+}
+

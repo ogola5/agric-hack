@@ -1,0 +1,19 @@
+type Farmer = record {
+  id : text;
+  name : text;
+  email : text;
+  address : text;
+  phone : text;
+  premiumPaymentAmount : nat64;
+};
+type _AzleResult = variant { Ok : Farmer; Err : text };
+type _AzleResult_1 = variant { Ok : vec Farmer; Err : text };
+service : () -> {
+  createFarmer : (text, text, text, text, nat64) -> (_AzleResult);
+  deleteFarmer : (text) -> (_AzleResult);
+  deliverGoods : (text) -> (_AzleResult);
+  getFarmer : (text) -> (_AzleResult) query;
+  getFarmers : () -> (_AzleResult_1) query;
+  payPremium : (text, nat64) -> (_AzleResult);
+  updateFarmer : (text, text, text, text, text) -> (_AzleResult);
+}
