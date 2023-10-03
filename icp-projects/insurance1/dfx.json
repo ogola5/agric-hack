@@ -1,0 +1,13 @@
+{
+    "canisters": {
+        "insurance": {
+            "type": "custom",
+            "build": "npx azle insurance",
+            "root": "src",
+            "ts": "src/index.ts",
+            "candid": "src/index.did",
+            "wasm": ".azle/insurance/insurance.wasm.gz"
+        }
+    }
+}
+
