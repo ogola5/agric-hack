@@ -114,8 +114,17 @@ button{
   .menu-bar{
     display: none;
   }
+  .feature{
+    flex: 0 1 calc(33.33% - 20px);
+  }
+
 }
+
+
 @media (max-width: 900px) {
+  .feature{
+    width: 100%!important;
+  }
   form,
   textarea {
     width: 90%!important;
@@ -398,7 +407,6 @@ p {
 
 /* Feature box */
 .feature {
-  flex: 0 1 calc(33.33% - 20px);
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   padding: 20px;
