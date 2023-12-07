@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logout, reset } from '../features/auth/authSlice';
+import { logout, login, register, reset } from '../features/auth/authSlice';
+
+
+
 
 function Header() {
   const navigate = useNavigate();
@@ -24,11 +27,12 @@ function Header() {
 
   const Login = (e) => {
     e.preventDefault();
-    // Perform login logic, set user data in local storage for example
     const userData = {
+      email: selectedEmail,
       role: document.getElementById('loginRole').value, // Get the selected role
     };
 
+    login(userData);
     // Additional login logic as needed
 
     // For demonstration purposes, log user data to the console
@@ -52,6 +56,7 @@ function Header() {
     };
 
 
+    register(userData);
     // Additional registration logic as needed
 
     // For demonstration purposes, log user data to the console
@@ -190,6 +195,12 @@ function Header() {
                           <option value="farmer">Farmer</option>
                           <option value="admin">Admin</option>
                         </select>
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="Your Email"
+                          onChange={(e) => setSelectedEmail(e.target.value)}
+                        />
                         <button className="form-control" style={{ border: '1px #fff', cursor: 'pointer' }} onClick={(e) => Login(e)}>Login</button>
                       </>
                     )}

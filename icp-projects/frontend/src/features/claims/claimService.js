@@ -1,19 +1,18 @@
 import axios from 'axios'
-
-const API_URL = process.env.REACT_APP_API_URL + '/api/claims/'
 // Get user transactions
 const getclaims = async (token) => {
  
-  const response = await axios.get(API_URL)
-
-  return response.data
+  // const response = await axios.get(/)
+// call getClaims here
+  // return response.data
 }
 
 const addclaim = async (claimData) => {
 
-  const response = await axios.post(API_URL , claimData)
+  // call addclaim function here
+  // const response = await axios.post(claimData)
 
-  return response.data
+  // return response.data
 }
 
 const claimService = {

@@ -1,19 +1,22 @@
 import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_API_URL + '/api/orders/'
 // Get user orders
 const getorders = async (token) => {
  
-  const response = await axios.get(API_URL)
+//call get orders Function here
 
-  return response.data
+  // const response = await axios.get()
+
+  // return response.data
 }
 
 const addorder = async (orderData) => {
 
-  const response = await axios.post(API_URL , orderData)
+  //call addOrder Function here
 
-  return response.data
+  // const response = await axios.post( orderData)
+
+  // return response.data
 }
 
 const orderService = {

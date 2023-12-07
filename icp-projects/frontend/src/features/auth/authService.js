@@ -1,21 +1,21 @@
 import axios from 'axios'
 
-// const API_URL = '/api/users/'
-const API_URL = process.env.REACT_APP_API_URL + '/api/users/';
 const getUsers = async () => {
-  const response = await axios.get(API_URL + 'getUsers/')
+  const response = await axios.get(`call get users function here`)
 
 return response.data
 }
 // Register user
 const register = async (userData) => {
-  const response = await axios.post(API_URL, userData)
+  // const response = await axios.post(userData)
 
-  if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
-  }
+  //call register function here
 
-  return response.data
+  // if (response.data) {
+  //   localStorage.setItem('user', JSON.stringify(response.data))
+  // }
+
+  // return response.data
 }
 //update User
 
@@ -26,19 +26,22 @@ const updateUser = async (userData, userId, token) => {
     },
   }
 
-  const response = await axios.put(API_URL + userId, userData, config)
+  // const response = await axios.put(API_URL + userId, userData, config)
 
-  return response.data
+  // return response.data
 }
 // Login user
 const login = async (userData) => {
-  const response = await axios.post(API_URL + 'login', userData)
+  // const response = await axios.post(userData)
 
-  if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
-  }
 
-  return response.data
+   //call login function here
+
+  // if (response.data) {
+  //   localStorage.setItem('user', JSON.stringify(response.data))
+  // }
+
+  // return response.data
 }
 
 // Logout user
