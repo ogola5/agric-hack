@@ -1,6 +1,23 @@
 body {
   margin-top: 0;
 }
+.login-menu{
+  position: fixed;
+  right: 10px;
+  top: 80px;
+  z-index: 999;
+  background-color: #48ec5e;
+  color: black;
+  border-radius: 5px;
+  
+}
+
+.login-menu form {
+  width: 200px;
+}
+.radio{
+  padding-left: 30px;
+}
 .header {
   background-color: #ffffff;
   color: black;
@@ -216,6 +233,8 @@ table tbody tr:hover {
 
 /* Styles for small and medium screens */
 @media (max-width: 768px) {
+  
+ 
   table {
     font-size: 14px; /* Reduce font size for smaller screens */
   }
@@ -407,6 +426,7 @@ p {
 
 /* Feature box */
 .feature {
+  
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   padding: 20px;

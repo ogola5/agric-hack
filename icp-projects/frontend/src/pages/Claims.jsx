@@ -17,10 +17,10 @@ function Claims() {
       console.log(message);
     }
 
-    // if (!user) {
-    //   navigate('/');
-    //   return;
-    // }
+    if (!user) {
+      navigate('/');
+      return;
+    }
     dispatch(getclaims());
 
     return () => {
@@ -50,21 +50,23 @@ function Claims() {
   return (
     <>
       <div className="health">
-        
-        <section className='form'>
-        <h2>Make A Claim</h2>
-          <form action="" >
-            <div className='form-group'>
-              <label htmlFor="">Claim Message</label>
-              <textarea
-                className='form-control'
-                value={claimDescription}
-                onChange={(e) => setClaimDescription(e.target.value)}
-              />
-              <button onClick={addClaim}>Make A Claim</button>
-            </div>
-          </form>
-        </section>
+        {(user && user.role == "farmer") && (
+          <section className='form'>
+            <h2>Make A Claim</h2>
+            <form action="" >
+              <div className='form-group'>
+                <label htmlFor="">Claim Message</label>
+                <textarea
+                  className='form-control'
+                  value={claimDescription}
+                  onChange={(e) => setClaimDescription(e.target.value)}
+                />
+                <button onClick={addClaim} style={{ cursor: 'pointer' }}>Make A Claim</button>
+              </div>
+            </form>
+          </section>
+        )}
+
         <h2>Claims</h2>
         <table>
           <thead>
@@ -73,7 +75,10 @@ function Claims() {
               <th>Farmer</th>
               <th>Claim Description</th>
               <th>Claim Status</th>
-              <th>Update Status</th>
+              {(user && user.role == "admin") && (
+                <th>Update Status</th>
+              )}
+
             </tr>
           </thead>
           {claims.length > 0 ? (
@@ -84,7 +89,9 @@ function Claims() {
                   <td>{claim.farmer}</td>
                   <td>{claim.claim_description}</td>
                   <td>{claim.status}</td>
-                  <td><input type="text" /></td>
+                  {(user && user.role == "admin") && (
+                    <td><input type="text" placeholder=' Change Status' /></td>
+                  )}
                 </tr>
               ))}
             </tbody>
