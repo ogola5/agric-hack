@@ -33,6 +33,7 @@ function Header() {
 
     // For demonstration purposes, log user data to the console
     alert('Success! logged in:');
+    setLoginOpen(false);
   };
   const Logout = (e) => {
     e.preventDefault();
@@ -40,6 +41,7 @@ function Header() {
     localStorage.removeItem('user');
     navigate('/');
   };
+  
   const Register = (e) => {
     e.preventDefault();
     // Perform registration logic, set user data in local storage for example
@@ -54,6 +56,7 @@ function Header() {
 
     // For demonstration purposes, log user data to the console
     alert('registered Successfully');
+    setLoginOpen(false);
   };
 
   return (
