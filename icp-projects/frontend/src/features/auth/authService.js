@@ -1,21 +1,28 @@
 import axios from 'axios'
 
-const getUsers = async () => {
-  const response = await axios.get(`call get users function here`)
+import consumers from "../../../../consumer/src/index"
+import farmers from "../../../../farmer/src/index"
 
-return response.data
+const getUsers = async () => {
+  const response = await axios.get(farmers.getFarmers() && consumers.getConsumers())
+
+  return response.data
 }
 // Register user
 const register = async (userData) => {
-  // const response = await axios.post(userData)
-
+  let response;
+  if (userData.role === 'farmer') {
+    response = await axios.post(farmers.register(userData))
+  } else if (userData.role === 'consumer') {
+    response = await axios.post(consumers.register(userData))
+  }
   //call register function here
 
-  // if (response.data) {
-  //   localStorage.setItem('user', JSON.stringify(response.data))
-  // }
+  if (response.data) {
+    localStorage.setItem('user', JSON.stringify(response.data))
+  }
 
-  // return response.data
+  return response.data
 }
 //update User
 
@@ -32,16 +39,20 @@ const updateUser = async (userData, userId, token) => {
 }
 // Login user
 const login = async (userData) => {
-  // const response = await axios.post(userData)
+
+  let response;
+  if (userData.role === 'farmer') {
+    response = await axios.post(farmers.login(userData))
+  } else if (userData.role === 'consumer') {
+    response = await axios.post(consumers.login(userData))
+  }
 
 
-   //call login function here
+  if (response.data) {
+    localStorage.setItem('user', JSON.stringify(response.data))
+  }
 
-  // if (response.data) {
-  //   localStorage.setItem('user', JSON.stringify(response.data))
-  // }
-
-  // return response.data
+  return response.data
 }
 
 // Logout user

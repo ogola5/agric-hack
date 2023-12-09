@@ -1,18 +1,21 @@
 import axios from 'axios'
+import consumers from "../../../../consumer/src/index"
+import farmers from "../../../../farmer/src/index"
+
 // Get user transactions
 const getclaims = async (token) => {
  
-  // const response = await axios.get(/)
-// call getClaims here
-  // return response.data
+  const response = await axios.get(token, farmers.getclaims());
+
+  return response.data
 }
 
 const addclaim = async (claimData) => {
 
   // call addclaim function here
-  // const response = await axios.post(claimData)
+  const response = await axios.post(farmers.addclaim(claimData))
 
-  // return response.data
+  return response.data
 }
 
 const claimService = {
